@@ -26,20 +26,20 @@ const Contact = () => {
     setSubmitStatus('idle');
 
     try {
-      // 使用 mailto 方式發送郵件
+      // Use mailto to send email
       const subject = encodeURIComponent(formData.subject);
       const body = encodeURIComponent(
-        `姓名: ${formData.name}\nEmail: ${formData.email}\n\n訊息:\n${formData.message}`
+        `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
       );
       const mailtoLink = `mailto:leo2tseng@gmail.com?subject=${subject}&body=${body}`;
       
       window.open(mailtoLink, '_self');
       
-      // 模擬成功狀態
+      // Simulate success state
       setTimeout(() => {
         setSubmitStatus('success');
         setIsSubmitting(false);
-        // 清空表單
+        // Clear form
         setFormData({
           name: '',
           email: '',
@@ -82,23 +82,23 @@ const Contact = () => {
       >
         <motion.div className="contact-header" variants={itemVariants}>
           <h1>CONTACT</h1>
-          <p className="contact-subtitle">讓我們一起創造些什麼</p>
+          <p className="contact-subtitle">Let's Create Something Together</p>
         </motion.div>
 
         <motion.div className="contact-content" variants={itemVariants}>
           <div className="contact-info">
-            <h2>聯繫資訊</h2>
+            <h2>Contact Information</h2>
             <p className="contact-description">
-              我很樂意討論新的機會、專案合作或任何技術相關的話題。
-              歡迎透過以下方式與我聯繫。
+              I'd love to discuss new opportunities, project collaborations, or any tech-related topics.
+              Feel free to reach out through any of the following methods.
             </p>
 
             <div className="contact-details">
               <div className="contact-item">
                 <MapPin size={20} />
                 <div>
-                  <h3>位置</h3>
-                  <p>高雄, 台灣</p>
+                  <h3>Location</h3>
+                  <p>Kaohsiung, Taiwan</p>
                 </div>
               </div>
 
@@ -113,7 +113,7 @@ const Contact = () => {
               <div className="contact-item">
                 <Phone size={20} />
                 <div>
-                  <h3>電話</h3>
+                  <h3>Phone</h3>
                   <p>0939289667</p>
                 </div>
               </div>
@@ -128,10 +128,10 @@ const Contact = () => {
           </div>
 
           <div className="contact-form">
-            <h2>發送訊息</h2>
+            <h2>Send Message</h2>
             <form onSubmit={handleSubmit}>
               <div className="form-group">
-                <label htmlFor="name">姓名</label>
+                <label htmlFor="name">Name</label>
                 <input
                   type="text"
                   id="name"
@@ -155,7 +155,7 @@ const Contact = () => {
               </div>
 
               <div className="form-group">
-                <label htmlFor="subject">主旨</label>
+                <label htmlFor="subject">Subject</label>
                 <input
                   type="text"
                   id="subject"
@@ -167,7 +167,7 @@ const Contact = () => {
               </div>
 
               <div className="form-group">
-                <label htmlFor="message">訊息</label>
+                <label htmlFor="message">Message</label>
                 <textarea
                   id="message"
                   name="message"
@@ -188,7 +188,7 @@ const Contact = () => {
                 {isSubmitting ? (
                   <div className="loading-spinner"></div>
                 ) : (
-                  '發送訊息'
+                  'Send Message'
                 )}
               </motion.button>
 
@@ -199,7 +199,7 @@ const Contact = () => {
                   animate={{ opacity: 1, y: 0 }}
                 >
                   <CheckCircle size={20} />
-                  <span>郵件客戶端已開啟，請在您的郵件應用中發送訊息</span>
+                  <span>Email client opened, please send the message in your email application</span>
                 </motion.div>
               )}
 
@@ -210,20 +210,19 @@ const Contact = () => {
                   animate={{ opacity: 1, y: 0 }}
                 >
                   <AlertCircle size={20} />
-                  <span>發送失敗，請直接發送郵件至 leo2tseng@gmail.com</span>
+                  <span>Failed to send, please send email directly to leo2tseng@gmail.com</span>
                 </motion.div>
               )}
 
- 
             </form>
           </div>
         </motion.div>
 
         <motion.div className="contact-cta" variants={itemVariants}>
-          <h2>準備開始合作了嗎？</h2>
+          <h2>Ready to Start Working Together?</h2>
           <p>
-            無論是實習機會、專案合作還是技術交流，我都很期待與您的對話。
-            讓我們一起創造出色的作品！
+            Whether it's internship opportunities, project collaborations, or technical discussions, 
+            I'm excited to connect with you. Let's create something amazing together!
           </p>
         </motion.div>
       </motion.div>

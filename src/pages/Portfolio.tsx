@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink} from 'lucide-react';
 
 const Portfolio = () => {
   const projects = [
@@ -10,7 +10,7 @@ const Portfolio = () => {
       category: 'Commercial Web Development',
       description: '專業的商業旅遊網站，具備完整的旅遊預訂系統和現代化的用戶介面設計',
       tech: ['React', 'Tailwind CSS', 'Framer Motion', 'Vite', 'React Router'],
-      image: '/images/Cover/Cover_travel-website.png',
+      image: 'images/Cover/Cover_travel-website.png',
       year: '2025',
       liveUrl: 'https://twakatitan.github.io/travel-website'
     },
@@ -20,7 +20,7 @@ const Portfolio = () => {
       category: 'MLOps & Development',
       description: '全棧MLOps平台自動化工具，整合MCP框架實現機器學習模型生命週期的端到端自動化管理',
       tech: ['Python', 'FastMCP', 'Playwright', 'Pydantic', 'Streamlit'],
-      image: '/images/Cover/Cover_MCP.png',
+      image: 'images/Cover/Cover_MCP.png',
       year: '2025'
     },
     {
@@ -29,7 +29,7 @@ const Portfolio = () => {
       category: 'Batch Training Platform',
       description: '基於Streamlit的企業級機器學習批量建模平台，為數據科學團隊提供直觀的Web介面進行大規模模型訓練與預測任務管理',
       tech: ['Streamlit', 'Python', 'FastAPI', 'Machine Learning'],
-      image: '/images/Cover/Cover_streamlit_batch_train.png',
+      image: 'images/Cover/Cover_streamlit_batch_train.png',
       year: '2025'
     },
     {
@@ -38,7 +38,7 @@ const Portfolio = () => {
       category: 'AI & Computer Vision',
       description: '運用FDG-PET影像進行失智症早期診斷的AI輔助診斷系統，整合多種機器學習模型',
       tech: ['Python', 'PyQt6', 'Computer Vision', 'Machine Learning', 'Medical AI'],
-      image: '/images/Cover/Cover_thesis.png',
+      image: 'images/Cover/Cover_thesis.png',
       year: '2024'
     },
     {
@@ -47,7 +47,7 @@ const Portfolio = () => {
       category: 'Full-stack & AI',
       description: '基於微服務架構的智慧影像檢索與分析系統，整合AI模型和向量資料庫',
       tech: ['React', 'FastAPI', 'Docker', 'FAISS', 'Redis', 'AI'],
-      image: '/images/Cover/Cover_cloud-website.png',
+      image: 'images/Cover/Cover_cloud-website.png',
       year: '2024'
     }
   ];
@@ -81,7 +81,7 @@ const Portfolio = () => {
       >
         <motion.div className="portfolio-header" variants={itemVariants}>
           <h1>PORTFOLIO</h1>
-          <p className="portfolio-subtitle">我的專案作品集</p>
+          <p className="portfolio-subtitle">My Projects</p>
         </motion.div>
 
         <motion.div className="projects-grid" variants={itemVariants}>
@@ -133,8 +133,9 @@ const Portfolio = () => {
         </motion.div>
 
         <motion.div className="portfolio-cta" variants={itemVariants}>
-          <h2>想要了解更多？</h2>
-          <p>歡迎查看我的詳細專案介紹或與我聯繫討論合作機會</p>
+          <h2>Want to Learn More?</h2>
+          <p>Feel free to explore my detailed project introductions or contact me to discuss potential collaborations.</p>
+
           <Link to="/contact" className="btn-primary">
             CONTACT ME
           </Link>

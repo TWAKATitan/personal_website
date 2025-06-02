@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowDown, Github, Mail } from 'lucide-react';
+import { Github, Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Home = () => {

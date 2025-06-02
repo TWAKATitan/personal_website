@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, ChevronLeft, ChevronRight, ExternalLink, Github } from 'lucide-react';
+import { ArrowLeft, ChevronLeft, ChevronRight, ExternalLink} from 'lucide-react';
 
 interface ProjectData {
   id: string;
@@ -33,24 +33,24 @@ const ProjectDetail = () => {
       fullDescription: '這是一個委託開發的商業旅遊網站，原本是為同學的叔叔所開發，但因為部署後牽扯重大，後來作廢，目前轉為作品展示用途。網站具備完整的旅遊預訂功能，包含動態首頁、智慧搜尋、多頁面架構等現代化功能。採用React 18.2.0作為主要框架，結合Tailwind CSS進行響應式設計，使用Framer Motion實現流暢的動畫效果，並透過GitHub Pages進行自動化部署。',
       tech: ['React 18.2.0', 'Tailwind CSS 3.3.2', 'Framer Motion 12.11.3', 'Vite 6.3.5', 'React Router DOM 7.6.0', 'Swiper 11.2.6', 'React DatePicker 8.3.0', 'React Icons 5.5.0'],
       images: [
-        '/images/travel website/homepage.png',
-        '/images/travel website/main.png',
-        '/images/travel website/main2.png',
-        '/images/travel website/main3.png',
-        '/images/travel website/main4.png',
-        '/images/travel website/main5.png',
-        '/images/travel website/main6.png',
-        '/images/travel website/main7.png',
-        '/images/travel website/country_travel_page.png',
-        '/images/travel website/country_travel2.png',
-        '/images/travel website/date_search.png',
-        '/images/travel website/travel_inform.png',
-        '/images/travel website/plan.png',
-        '/images/travel website/Member Center.png',
-        '/images/travel website/order_track.png',
-        '/images/travel website/Customer Service Center.png',
-        '/images/travel website/Customer Service Center2.png',
-        '/images/travel website/Customer Service Center3.png'
+        'images/travel website/homepage.png',
+        'images/travel website/main.png',
+        'images/travel website/main2.png',
+        'images/travel website/main3.png',
+        'images/travel website/main4.png',
+        'images/travel website/main5.png',
+        'images/travel website/main6.png',
+        'images/travel website/main7.png',
+        'images/travel website/country_travel_page.png',
+        'images/travel website/country_travel2.png',
+        'images/travel website/date_search.png',
+        'images/travel website/travel_inform.png',
+        'images/travel website/plan.png',
+        'images/travel website/Member Center.png',
+        'images/travel website/order_track.png',
+        'images/travel website/Customer Service Center.png',
+        'images/travel website/Customer Service Center2.png',
+        'images/travel website/Customer Service Center3.png'
       ],
       year: '2025',
       features: [
@@ -88,18 +88,18 @@ const ProjectDetail = () => {
       fullDescription: '開發了一個全棧MLOps平台自動化工具，整合Model Context Protocol (MCP) 框架，實現機器學習模型生命週期的端到端自動化管理。此專案結合了Web自動化、API整合、以及智慧工具鏈，為MLOps團隊提供了完整的串流資料處理和模型管理解決方案。我把MCP裡的大部分功能用Streamlit寫成一個測試網站，包含智能身份識別系統、Web自動化引擎、MLOps配置管理和資料串流管理系統等核心模組，將手動MLOps操作自動化，提升團隊工作效率70%以上。',
       tech: ['Python', 'FastMCP', 'MCP Protocol', 'Playwright', 'Pydantic', 'Streamlit', 'RESTful APIs', 'JSON配置管理', '非同步程式設計'],
       images: [
-        '/images/mcp/MCP tool.png',
-        '/images/mcp/mcp web1.png',
-        '/images/mcp/mcp web2.png',
-        '/images/mcp/mcp web3.png',
-        '/images/mcp/mcp web4.png',
-        '/images/mcp/mcp web5.png',
-        '/images/mcp/mcp web6.png',
-        '/images/mcp/mcp web7.png',
-        '/images/mcp/mcp web8.png',
-        '/images/mcp/mcp web9.png',
-        '/images/mcp/mcp web10.png',
-        '/images/mcp/mcp web11.png'
+        'images/mcp/MCP tool.png',
+        'images/mcp/mcp web1.png',
+        'images/mcp/mcp web2.png',
+        'images/mcp/mcp web3.png',
+        'images/mcp/mcp web4.png',
+        'images/mcp/mcp web5.png',
+        'images/mcp/mcp web6.png',
+        'images/mcp/mcp web7.png',
+        'images/mcp/mcp web8.png',
+        'images/mcp/mcp web9.png',
+        'images/mcp/mcp web10.png',
+        'images/mcp/mcp web11.png'
       ],
       year: '2025',
       features: [
@@ -135,21 +135,21 @@ const ProjectDetail = () => {
       fullDescription: '開發了一個基於Streamlit的企業級機器學習批量建模平台，為數據科學團隊提供直觀的Web介面進行大規模模型訓練與預測任務管理。該系統支援多資料集同時訓練、時間序列預測，以及完整的模型生命週期管理。採用模組化架構，包含訓練模組、預測模組、資料處理模組等12+個核心組件，實現前後端分離，透過RESTful API與後端機器學習平台整合。整合15+種機器學習演算法（Boosting、Trees、Linear、SVM、Deep Learning），支援AutoARIMA、Prophet、LSTM、ETS等專業時間序列演算法，並實現自動化特徵工程與批量訓練功能。',
       tech: ['Python', 'Streamlit', 'Pandas', 'NumPy', 'Scikit-learn', 'Plotly', 'Docker', 'RESTful API', 'AutoARIMA', 'Prophet', 'LSTM'],
       images: [
-        '/images/streamlit/streamlit 1.png',
-        '/images/streamlit/streamlit 2.png',
-        '/images/streamlit/streamlit 3.png',
-        '/images/streamlit/streamlit 4.png',
-        '/images/streamlit/streamlit 5.png',
-        '/images/streamlit/streamlit 6.png',
-        '/images/streamlit/streamlit 7.png',
-        '/images/streamlit/streamlit 8.png',
-        '/images/streamlit/streamlit 9.png',
-        '/images/streamlit/streamlit 10.png',
-        '/images/streamlit/streamlit 11.png',
-        '/images/streamlit/streamlit 12.png',
-        '/images/streamlit/streamlit 13.png',
-        '/images/streamlit/streamlit 14.png',
-        '/images/streamlit/streamlit 15.png'
+        'images/streamlit/streamlit 1.png',
+        'images/streamlit/streamlit 2.png',
+        'images/streamlit/streamlit 3.png',
+        'images/streamlit/streamlit 4.png',
+        'images/streamlit/streamlit 5.png',
+        'images/streamlit/streamlit 6.png',
+        'images/streamlit/streamlit 7.png',
+        'images/streamlit/streamlit 8.png',
+        'images/streamlit/streamlit 9.png',
+        'images/streamlit/streamlit 10.png',
+        'images/streamlit/streamlit 11.png',
+        'images/streamlit/streamlit 12.png',
+        'images/streamlit/streamlit 13.png',
+        'images/streamlit/streamlit 14.png',
+        'images/streamlit/streamlit 15.png'
       ],
       year: '2025',
       features: [
@@ -186,13 +186,13 @@ const ProjectDetail = () => {
       fullDescription: '針對全球老齡化趨勢及失智症患者日增現況，開發AI影像輔助失智症診斷系統。使用ADNI公開資料集中1,650筆預處理後的FDG-PET影像（86個腦區SUVR數值），結合機器學習與深度學習方法，開發三類別（CN、MCI、AD）自動分類模型。採用SMOTE+TOMEK進行類別平衡，比較多種單一模型與集成方法，自行設計Bi-level分類器，最終Stacking模型整體準確率達72.96%。使用MonAI與SEResNet50架構實作深度學習模型，結合影像增強、Focal Loss與混合精度訓練，測試集達68%準確度。將最佳模型整合為原型醫療軟體，具備臨床早期輔助診斷價值。',
       tech: ['Python', 'NumPy', 'Pandas', 'Scikit-learn', 'XGBoost', 'CatBoost', 'PyTorch', 'MonAI', 'SEResNet50', 'SMOTE', 'PyQt6'],
       images: [
-        '/images/thesis/dashboard.png',
-        '/images/thesis/dashboard after upload file.png',
-        '/images/thesis/model report page.png',
-        '/images/thesis/2D brain report.png',
-        '/images/thesis/3D brain report.png',
-        '/images/thesis/poster 1.png',
-        '/images/thesis/poster 2.png'
+        'images/thesis/dashboard.png',
+        'images/thesis/dashboard after upload file.png',
+        'images/thesis/model report page.png',
+        'images/thesis/2D brain report.png',
+        'images/thesis/3D brain report.png',
+        'images/thesis/poster 1.png',
+        'images/thesis/poster 2.png'
       ],
       year: '2024',
       features: [
@@ -232,14 +232,14 @@ const ProjectDetail = () => {
       fullDescription: '開發了一套基於微服務架構的智慧影像檢索與分析系統，整合了AI模型和向量資料庫，支援多模態搜尋和PDF文件處理。系統採用1個控制器+3個工作節點的分散式處理架構，實現智慧負載平衡和任務分配機制，具備心跳監控和自動故障恢復功能。整合BLIP圖像描述模型和Sentence Transformers嵌入，支援文字查詢、圖像相似性搜尋和PDF內容檢索，使用FAISS實現高效向量相似度計算。',
       tech: ['React', 'FastAPI', 'Docker', 'FAISS', 'Redis', 'AI', 'Microservices', 'BLIP', 'Sentence Transformers'],
       images: [
-        '/images/cloud-website/dashboard.png',
-        '/images/cloud-website/dashboard 2.png',
-        '/images/cloud-website/login.png',
-        '/images/cloud-website/register.png',
-        '/images/cloud-website/image page.png',
-        '/images/cloud-website/image page 2.png',
-        '/images/cloud-website/image page 3.png',
-        '/images/cloud-website/PDF search.png'
+        'images/cloud-website/dashboard.png',
+        'images/cloud-website/dashboard 2.png',
+        'images/cloud-website/login.png',
+        'images/cloud-website/register.png',
+        'images/cloud-website/image page.png',
+        'images/cloud-website/image page 2.png',
+        'images/cloud-website/image page 3.png',
+        'images/cloud-website/PDF search.png'
       ],
       year: '2024',
       features: [
