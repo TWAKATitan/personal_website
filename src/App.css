@@ -170,28 +170,50 @@ h1, h2, h3, h4, h5, h6 {
   display: none;
   cursor: pointer;
   color: #ffffff;
-  z-index: 1001;
+  z-index: 1002;
+  position: relative;
+}
+
+/* 手機版菜單背景遮罩 */
+.nav-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  backdrop-filter: blur(5px);
 }
 
 .nav-menu-mobile {
   display: none;
   position: fixed;
-  top: 80px;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background: rgba(10, 10, 10, 0.98);
   backdrop-filter: blur(20px);
-  padding: 3rem 2rem;
-  transform: translateY(-100%);
+  padding: 0;
+  transform: translateX(-100%);
   opacity: 0;
   transition: all 0.4s ease;
-  z-index: 999;
+  z-index: 1000;
 }
 
 .nav-menu-mobile.open {
-  transform: translateY(0);
+  transform: translateX(0);
   opacity: 1;
+}
+
+.nav-menu-mobile-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 2rem;
 }
 
 .nav-link-mobile {
@@ -204,12 +226,14 @@ h1, h2, h3, h4, h5, h6 {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
   text-align: center;
+  width: 100%;
+  max-width: 300px;
 }
 
 .nav-link-mobile:hover,
 .nav-link-mobile.active {
   color: #00ff88;
-  transform: translateX(10px);
+  transform: scale(1.05);
 }
 
 .nav-logo-mobile {
@@ -1398,6 +1422,52 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
   }
 
+  /* 手機版項目卡片優化 */
+  .project-card {
+    position: relative;
+  }
+
+  /* 手機版項目卡片始終顯示按鈕 */
+  .project-overlay {
+    opacity: 1;
+    transform: translateY(0);
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(0, 0, 0, 0.3) 40%,
+      rgba(0, 0, 0, 0.8) 100%
+    );
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .view-project,
+  .live-demo {
+    position: static;
+    transform: translateY(0);
+    opacity: 1;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.85rem;
+    border-radius: 25px;
+    width: auto;
+    min-width: 120px;
+    text-align: center;
+  }
+
+  .view-project {
+    background: rgba(0, 255, 136, 0.9);
+    color: #000000;
+  }
+
+  .live-demo {
+    background: rgba(255, 255, 255, 0.9);
+    color: #000000;
+  }
+
   .hero-title {
     font-size: 3.5rem;
   }
@@ -1463,6 +1533,39 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0 1rem;
   }
 
+  /* 手機版導航按鈕更大的點擊區域 */
+  .nav-toggle {
+    padding: 0.5rem;
+    margin-right: -0.5rem;
+  }
+
+  /* 手機版菜單項目更大的觸控區域 */
+  .nav-link-mobile {
+    font-size: 1.8rem;
+    padding: 2rem 1rem;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* 項目卡片手機版優化 */
+  .project-overlay {
+    padding: 1rem;
+    gap: 0.6rem;
+  }
+
+  .view-project,
+  .live-demo {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.8rem;
+    min-width: 100px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .hero-section {
     padding: 3rem 1rem;
   }
@@ -1476,6 +1579,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 1rem 2rem;
     font-size: 0.85rem;
     min-width: 140px;
+    min-height: 48px;
   }
 
   .content-wrapper {
