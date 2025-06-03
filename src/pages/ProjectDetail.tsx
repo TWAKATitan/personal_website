@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, ChevronLeft, ChevronRight, ExternalLink} from 'lucide-react';
+import { ArrowLeft, ChevronLeft, ChevronRight, ExternalLink, X, ZoomIn} from 'lucide-react';
 
 interface ProjectData {
   id: string;
@@ -23,6 +23,8 @@ const ProjectDetail = () => {
   const { projectId } = useParams<{ projectId: string }>();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [project, setProject] = useState<ProjectData | null>(null);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [lightboxImageIndex, setLightboxImageIndex] = useState(0);
 
   const projectsData: { [key: string]: ProjectData } = {
     'travel-website': {
@@ -273,6 +275,24 @@ const ProjectDetail = () => {
     }
   }, [projectId]);
 
+  // Add keyboard support for lightbox
+  useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (!isLightboxOpen) return;
+      
+      if (e.key === 'Escape') {
+        setIsLightboxOpen(false);
+      } else if (e.key === 'ArrowLeft') {
+        prevLightboxImage();
+      } else if (e.key === 'ArrowRight') {
+        nextLightboxImage();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyPress);
+    return () => document.removeEventListener('keydown', handleKeyPress);
+  }, [isLightboxOpen, lightboxImageIndex, project]);
+
   const nextImage = () => {
     if (project) {
       setCurrentImageIndex((prev) => 
@@ -284,6 +304,33 @@ const ProjectDetail = () => {
   const prevImage = () => {
     if (project) {
       setCurrentImageIndex((prev) => 
+        prev === 0 ? project.images.length - 1 : prev - 1
+      );
+    }
+  };
+
+  const openLightbox = (index: number) => {
+    setLightboxImageIndex(index);
+    setIsLightboxOpen(true);
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+  };
+
+  const closeLightbox = () => {
+    setIsLightboxOpen(false);
+    document.body.style.overflow = 'unset'; // Restore scrolling
+  };
+
+  const nextLightboxImage = () => {
+    if (project) {
+      setLightboxImageIndex((prev) => 
+        prev === project.images.length - 1 ? 0 : prev + 1
+      );
+    }
+  };
+
+  const prevLightboxImage = () => {
+    if (project) {
+      setLightboxImageIndex((prev) => 
         prev === 0 ? project.images.length - 1 : prev - 1
       );
     }
@@ -336,16 +383,25 @@ const ProjectDetail = () => {
         >
           <div className="gallery-container">
             <AnimatePresence mode="wait">
-              <motion.img
+              <motion.div
                 key={currentImageIndex}
-                src={project.images[currentImageIndex]}
-                alt={`${project.title} - Image ${currentImageIndex + 1}`}
-                className="gallery-image"
+                className="gallery-image-wrapper"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 1.1 }}
                 transition={{ duration: 0.5 }}
-              />
+                onClick={() => openLightbox(currentImageIndex)}
+              >
+                <img
+                  src={project.images[currentImageIndex]}
+                  alt={`${project.title} - Image ${currentImageIndex + 1}`}
+                  className="gallery-image"
+                />
+                <div className="image-overlay">
+                  <ZoomIn size={32} />
+                  <span>點擊放大</span>
+                </div>
+              </motion.div>
             </AnimatePresence>
             
             <button className="gallery-nav prev" onClick={prevImage}>
@@ -362,15 +418,25 @@ const ProjectDetail = () => {
           
           <div className="gallery-thumbnails">
             {project.images.map((image, index) => (
-              <motion.img
+              <motion.div
                 key={index}
-                src={image}
-                alt={`Thumbnail ${index + 1}`}
-                className={`thumbnail ${index === currentImageIndex ? 'active' : ''}`}
-                onClick={() => setCurrentImageIndex(index)}
+                className={`thumbnail-wrapper ${index === currentImageIndex ? 'active' : ''}`}
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
-              />
+              >
+                <img
+                  src={image}
+                  alt={`Thumbnail ${index + 1}`}
+                  className="thumbnail"
+                  onClick={() => setCurrentImageIndex(index)}
+                />
+                <div 
+                  className="thumbnail-overlay"
+                  onClick={() => openLightbox(index)}
+                >
+                  <ZoomIn size={16} />
+                </div>
+              </motion.div>
             ))}
           </div>
         </motion.div>
@@ -462,6 +528,63 @@ const ProjectDetail = () => {
           </Link>
         </motion.div>
       </motion.div>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {isLightboxOpen && (
+          <motion.div
+            className="lightbox-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            onClick={closeLightbox}
+          >
+            <motion.div
+              className="lightbox-container"
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button className="lightbox-close" onClick={closeLightbox}>
+                <X size={24} />
+              </button>
+              
+              <div className="lightbox-content">
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={lightboxImageIndex}
+                    src={project.images[lightboxImageIndex]}
+                    alt={`${project.title} - Image ${lightboxImageIndex + 1}`}
+                    className="lightbox-image"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </AnimatePresence>
+                
+                {project.images.length > 1 && (
+                  <>
+                    <button className="lightbox-nav prev" onClick={prevLightboxImage}>
+                      <ChevronLeft size={32} />
+                    </button>
+                    <button className="lightbox-nav next" onClick={nextLightboxImage}>
+                      <ChevronRight size={32} />
+                    </button>
+                  </>
+                )}
+                
+                <div className="lightbox-counter">
+                  {lightboxImageIndex + 1} / {project.images.length}
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
