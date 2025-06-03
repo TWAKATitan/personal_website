@@ -174,6 +174,17 @@ const About = () => {
                   <li>Data Visualization</li>
                 </ul>
               </div>
+
+              <div className="skill-group">
+                <h3>Cloud & DevOps</h3>
+                <ul>
+                  <li>AWS (Amazon Web Services)</li>
+                  <li>GitHub Actions</li>
+                  <li>CI/CD Pipeline</li>
+                  <li>Web Scraping (Selenium, Scrapy)</li>
+                  <li>Version Control (Git)</li>
+                </ul>
+              </div>
             </div>
           </div>
         </motion.div>

@@ -199,7 +199,7 @@ const Contact = () => {
                   animate={{ opacity: 1, y: 0 }}
                 >
                   <CheckCircle size={20} />
-                  <span>Email client opened, please send the message in your email application</span>
+                  <span>郵件應用程式已開啟，請在您的郵件應用程式中發送訊息</span>
                 </motion.div>
               )}
 
@@ -210,7 +210,7 @@ const Contact = () => {
                   animate={{ opacity: 1, y: 0 }}
                 >
                   <AlertCircle size={20} />
-                  <span>Failed to send, please send email directly to leo2tseng@gmail.com</span>
+                  <span>發送失敗，請直接發送郵件至 leo2tseng@gmail.com</span>
                 </motion.div>
               )}
 

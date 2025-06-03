@@ -190,16 +190,17 @@ h1, h2, h3, h4, h5, h6 {
   display: none;
   position: fixed;
   top: 0;
-  left: 0;
   right: 0;
   bottom: 0;
+  width: 250px;
   background: rgba(10, 10, 10, 0.98);
   backdrop-filter: blur(20px);
   padding: 0;
-  transform: translateX(-100%);
+  transform: translateX(100%);
   opacity: 0;
   transition: all 0.4s ease;
   z-index: 1000;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .nav-menu-mobile.open {
@@ -213,7 +214,7 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  padding: 2rem;
+  padding: 2rem 1rem;
 }
 
 .nav-link-mobile {
@@ -221,13 +222,16 @@ h1, h2, h3, h4, h5, h6 {
   color: #ffffff;
   text-decoration: none;
   font-weight: 600;
-  font-size: 2rem;
-  padding: 1.5rem 0;
+  font-size: 1.3rem;
+  padding: 1.5rem 1rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
   text-align: center;
   width: 100%;
-  max-width: 300px;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav-link-mobile:hover,
@@ -1352,20 +1356,57 @@ h1, h2, h3, h4, h5, h6 {
 /* Form Note */
 .form-note {
   margin-top: 1.5rem;
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  background: rgba(0, 255, 136, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(0, 255, 136, 0.2);
+  backdrop-filter: blur(10px);
 }
 
 .form-note p {
-  margin: 0.5rem 0;
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.7);
+  margin: 0.8rem 0;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
 }
 
 .form-note strong {
   color: #00ff88;
+  font-weight: 600;
+}
+
+.form-note ul {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+  list-style: none;
+}
+
+.form-note li {
+  margin: 0.5rem 0;
+  color: rgba(255, 255, 255, 0.7);
+  position: relative;
+  padding-left: 1rem;
+  font-size: 0.85rem;
+}
+
+.form-note li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: #00ff88;
+  font-weight: bold;
+}
+
+.form-note a {
+  color: #00ff88;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.form-note a:hover {
+  color: #ffffff;
+  text-decoration: underline;
 }
 
 /* Button Disabled State */
@@ -1541,8 +1582,8 @@ h1, h2, h3, h4, h5, h6 {
 
   /* 手機版菜單項目更大的觸控區域 */
   .nav-link-mobile {
-    font-size: 1.8rem;
-    padding: 2rem 1rem;
+    font-size: 1.3rem;
+    padding: 1.5rem 1rem;
     min-height: 60px;
     display: flex;
     align-items: center;
