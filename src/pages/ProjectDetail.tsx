@@ -27,6 +27,52 @@ const ProjectDetail = () => {
   const [lightboxImageIndex, setLightboxImageIndex] = useState(0);
 
   const projectsData: { [key: string]: ProjectData } = {
+    'chess': {
+      id: 'chess',
+      title: '星座征戰棋 (Constellation Conquest)',
+      category: 'Full-stack Game Development',
+      description: '創新星座主題策略棋類遊戲，結合即時多人對戰和AI智能系統，具備完整的前後端架構',
+      fullDescription: '自主開發的創新星座主題策略棋類遊戲，結合傳統棋類遊戲的策略深度與現代Web技術的互動體驗。遊戲具備完整的多人對戰功能、AI智能對手系統，以及豐富的視覺效果和星象事件機制。採用React 18的函數式組件架構，使用Socket.IO實現低延遲的即時多人對戰，結合Framer Motion創造流暢的遊戲動畫效果。後端使用Node.js + Express建構輕量級服務器，支援遊戲房間管理和狀態同步。專案包含7種不同能力的星座棋子、動態星象事件系統、3種難度AI對手，以及完整的遊戲記錄和戰績統計功能。',
+      tech: ['React 18', 'Node.js', 'Express', 'Socket.IO', 'Framer Motion', 'Styled Components', 'React Spring', 'Vite', 'UUID', 'CORS'],
+      images: [
+        'images/Chess/dashboard.png',
+        'images/Chess/page1.png',
+        'images/Chess/page2.png',
+        'images/Chess/rules.png',
+        'images/Chess/record.png'
+      ],
+      year: '2025',
+      features: [
+        '創新遊戲設計：7種星座棋子（北極星、大熊座、天鷹座等），每種具備獨特能力',
+        '即時多人對戰：WebSocket技術實現低延遲的線上對戰體驗',
+        '智能AI系統：3種難度等級的AI對手，使用進階算法進行策略決策',
+        '動態星象事件：每4回合觸發隨機戰術變化，增加遊戲策略深度',
+        '銀河中心機制：特殊控制點系統，創造更多戰術可能性',
+        '遊戲房間系統：玩家可建立或加入遊戲房間，支援觀戰功能',
+        '個性化頭像：多種頭像選擇和個人資料管理',
+        '戰績統計：完整的遊戲記錄和勝負統計系統',
+        '響應式設計：適配桌面和移動設備的流暢體驗',
+        '視覺效果：粒子系統和星空主題的沉浸式視覺設計'
+      ],
+      challenges: [
+        '複雜遊戲邏輯：設計並實現7種棋子的移動規則和交互機制',
+        '即時同步：確保多玩家遊戲狀態的準確同步和衝突處理',
+        'AI算法優化：實現高效的Minimax變體算法，平衡智能度和響應速度',
+        '性能優化：處理複雜動畫和大量DOM操作，維持60FPS流暢體驗',
+        '狀態管理：設計可擴展的遊戲狀態架構，支援斷線重連功能',
+        '跨平台相容：確保不同設備和瀏覽器的一致遊戲體驗'
+      ],
+      outcomes: [
+        '成功開發完整的全端遊戲系統，包含前後端架構',
+        '實現穩定的多人即時對戰功能，支援並發遊戲',
+        '創造獨特的遊戲體驗，融合策略性和視覺美感',
+        '建立可擴展的遊戲架構，支援新功能和遊戲模式',
+        '獲得全端開發、即時通訊和遊戲邏輯設計的實戰經驗',
+        '程式碼規模：超過3000行，包含11個主要React組件和完整後端API',
+        '技術深度：涵蓋前後端開發、即時通訊、遊戲AI和動畫系統'
+      ],
+      demoUrl: 'https://spacechess.netlify.app/'
+    },
     'travel-website': {
       id: 'travel-website',
       title: 'TITAN Travel 旅遊網站',
@@ -465,7 +511,9 @@ const ProjectDetail = () => {
                       ? '觀看操作演示' 
                       : project.id === 'travel-website' 
                         ? '前往查看網站'
-                        : '觀看操作演示'
+                        : project.id === 'chess'
+                          ? '前往遊戲網站'
+                          : '觀看操作演示'
                     }
                   </span>
                 </a>

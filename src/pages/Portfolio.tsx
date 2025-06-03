@@ -5,6 +5,16 @@ import { ExternalLink} from 'lucide-react';
 const Portfolio = () => {
   const projects = [
     {
+      id: 'chess',
+      title: '星座征戰棋 (Constellation Conquest)',
+      category: 'Full-stack Game Development',
+      description: '創新星座主題策略棋類遊戲，結合即時多人對戰和AI智能系統，具備完整的前後端架構',
+      tech: ['React 18', 'Node.js', 'Socket.IO', 'Framer Motion', 'Styled Components', 'Express'],
+      image: 'images/Cover/Cover_chess.png',
+      year: '2025',
+      liveUrl: 'https://spacechess.netlify.app/'
+    },
+    {
       id: 'travel-website',
       title: 'TITAN Travel 旅遊網站',
       category: 'Commercial Web Development',
